@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app' @click="divClick">
+    aaaaa
+    <!-- 1.stop修饰符的使用,加上修饰符.stop即停止了冒泡 -->
+    <button @click.stop = "btnClick">按钮</button>
+    <!-- 2.prevent修饰符的使用，取消了默认行为 -->
+    <form action="baidu">
+      <input type="submit" value="提交" @click.prevent.stop='submitClick'>
+    </form>
+    <!-- 3.监听某个按键的按下 -->
+    <input type="text" @keyup.enter="keyClick">
+    <!-- 4.once只触发一次 -->
+    <button @click.once="onceClick">按钮2</button>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',//用于挂载元素
+      data:{//定义数据
+        message: '芜湖'
+    },
+    methods:{
+      divClick(){
+        console.log('div')
+      },
+      btnClick(){
+        console.log('btn')
+      },
+      submitClick(){
+        console.log('submit')
+      },
+      keyClick(){
+        console.log('key')
+      },
+      onceClick(){
+        console.log('once')
+      }
+    }
+  })
+  </script>
+</body>
+</html>

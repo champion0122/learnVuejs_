@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <h2>{{counter}}</h2>
+    <cpn @cpn-click="changeCounter"></cpn>
+  </div>
+
+  <template id='cpn'>
+    <div>
+      <button @click='decrement()'>-1</button>
+      <button @click='increment()'>+1</button>
+    </div>
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+    const cpn = {
+      template: "#cpn",
+      data(){
+        return {
+          cCounter: 0
+        }
+      },
+      methods:{
+        decrement(){
+          this.cCounter--
+          this.$emit('cpn-click',this.cCounter)
+        },
+        increment(){
+          this.cCounter++
+          this.$emit('cpn-click',this.cCounter)
+        },
+      }
+    }
+
+    const app = new Vue({
+      el: '#app',//用于挂载元素
+      data:{//定义数据
+        message: '芜湖',
+        counter: 0
+    },
+    components:{
+      cpn
+    },
+    methods:{
+      changeCounter(i){
+        this.counter = i
+      }
+    }
+  })
+  </script>
+</body>
+</html>

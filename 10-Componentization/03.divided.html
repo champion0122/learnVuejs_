@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <h2>{{message}}</h2>
+    <my-cpn></my-cpn>
+  </div>
+<!-- 1.script -->
+<!-- <script type="text/x-template" id="cpn">
+<div>
+  <h2>biaoti</h2>
+  <p>neirong</p>
+</div>
+</script> -->
+
+<!-- 2.template -->
+<template id="cpn">
+  <div>
+    <h2>ABC</h2>
+    <p>neirong</p>
+  </div>
+</template> 
+
+  <script src='../js/vue.js'></script>
+  <script>
+    Vue.component('myCpn',{
+      template: '#cpn'
+    })
+    const app = new Vue({ 
+      el: '#app',//用于挂载元素
+      data:{//定义数据
+        message: '芜湖'
+    }
+  })
+  </script>
+</body>
+</html>

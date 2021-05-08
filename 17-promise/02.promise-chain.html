@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //wrapped into
+   //result : aaa
+   //process aaa 111
+   //process aaa 111 222
+
+   //1 origin
+  // new Promise(resolve => {
+  //   setTimeout(() => {
+  //     resolve('aaa')
+  //   },1000)
+  // }).then(res => {
+  //   console.log(res,'First')
+  //   return new Promise(resolve => 
+  //   resolve(res + '111'))
+  // }).then(res => {
+  //   console.log(res,'second')
+  //   return new Promise(resolve => 
+  //   resolve(res + '222'))
+  // }).then(res => {
+  //   console.log(res,'final')
+  // })
+
+  //2 rm new
+  // new Promise(resolve => {
+  //   setTimeout(() => {
+  //     resolve('aaa')
+  //   },1000)
+  // }).then(res => {
+  //   console.log(res,'First')
+  //   return Promise.resolve(res + '111')
+  // }).then(res => {
+  //   console.log(res,'second')
+  //   return Promise.resolve(res + '222')
+  // }).then(res => {
+  //   console.log(res,'final')
+  // })
+
+  //3 rm Promise.resolve
+  new Promise((resolve) => {
+    setTimeout(() => {
+      resolve('aaa')
+    },1000)
+  }).then((res) => {
+    console.log(res,'f')
+    return res + '111'
+  }).then((res) => {
+    console.log(res,'s')
+    return res + '222'
+  }).then((res) => {
+    console.log(res,'f')
+  })
+
+  //1.1 Promise.reject
+  new Promise((resolve,reject) => {
+    setTimeout(() => {
+      resolve('aaa')
+      // reject('err message')
+    },1000)
+  }).then(res => {
+    console.log(res,'First')
+    return Promise.reject('error first')
+    // return Promise.resolve(res + '111')
+  }).then(res => {
+    console.log(res,'second')
+    return Promise.resolve(res + '222')
+  }).then(res => {
+    console.log(res,'final')
+  }).catch(err => console.log(err))
+
+
+  //1.2 throw
+  new Promise((resolve,reject) => {
+    setTimeout(() => {
+      resolve('aaa')
+      // reject("error message")
+    },1000)
+  }).then((res) => {
+    console.log(res,'f')
+    throw "second error"
+    // return res + '111'
+  }).then((res) => {
+    console.log(res,'s')
+    return res + '222'
+  }).then((res) => {
+    console.log(res,'f')
+  }).catch(err => console.log(err))
+
+  </script>
+</body>
+</html>

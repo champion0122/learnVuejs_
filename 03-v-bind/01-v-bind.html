@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <a :href="url"><img :src="imgURL" alt="" width="400px" height="300px"></a>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',//用于挂载元素
+      data:{//定义数据
+        message: '芜湖',
+        imgURL: 'https://img20.360buyimg.com/pop/s1180x940_jfs/t1/157029/39/17551/83526/606e5727E8414a00b/56125dd23bfc509b.jpg.webp',
+        url: 'https://prodev.jd.com/mall/active/7aM58YGuPHf1hk427yZjcqc4oBe/index.html?extension_id=eyJhZCI6IiIsImNoIjoiIiwic2hvcCI6IiIsInNrdSI6IiIsInRzIjoiIiwidW5pcWlkIjoie1wiY2xpY2tfaWRcIjpcIjM1YmU0M2VlLTdiZmEtNGNmYi05NDI5LTM1MTBiZDkwOGZhNVwiLFwibWF0ZXJpYWxfaWRcIjpcIjM2MDY1NjI4NDRcIixcInBvc19pZFwiOlwiNDI3MlwiLFwic2lkXCI6XCIyMzQ2MDAwZi05ZTJkLTRjNGYtYWE4Ni1iYzEwZWEwZDdiNDhcIn0ifQ==&jd_pop=35be43ee-7bfa-4cfb-9429-3510bd908fa5&abt=1'
+    }
+  })
+  </script>
+</body>
+</html>

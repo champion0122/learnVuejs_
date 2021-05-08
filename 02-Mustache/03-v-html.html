@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    {{message}}
+    <h2 v-html = 'url'></h2>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',//用于挂载元素
+      data:{//定义数据
+        message: '芜湖',
+        url: '<a href = "https://www.google.com">百度一哈</a>'
+    }
+  })
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <h2>{{fullmessage}}</h2>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',//用于挂载元素
+      data:{//定义数据
+        message: '芜湖',
+        action: '起飞'
+    },
+    computed:{
+      fullmessage: {
+        //set传入参数，需要形参来接收
+        set: function(newValue){
+          console.log("------",newValue)
+          const names = newValue.split(' ')
+          this.message = names[0]
+          this.action = names[1]
+        },
+        get: 
+          function(){
+            return this.message+ " " + this.action
+        }
+      }
+    }
+  })
+  </script>
+</body>
+</html>

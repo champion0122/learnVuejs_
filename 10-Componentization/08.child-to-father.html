@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- father -->
+  <div id='app'>
+    <cpn :c-info='info' :c-message='message' @item-click="cpnClick"></cpn>
+  </div>
+
+  <!-- children -->
+  <template id='cpn'>
+    <div>
+      <button v-for="item in categories" @click="btnClick(item)">{{item.name}}</button>
+      <h2>{{cInfo}}</h2>
+      <h2>{{cMessage}}</h2>
+    </div>
+  </template>
+  <script src='../js/vue.js'></script>
+  <script>
+    const cpn = {
+      template: '#cpn',
+      data(){
+        return {
+          categories:[
+            {id:'aaa',name:'热门推荐'},
+            {id:'bbb',name:'手机数码'},
+            {id:'ccc',name:'家居优品'},
+            {id:'ddd',name:'电脑办公'},
+          ]
+        }
+      },
+      methods:{
+        btnClick(item){
+          //发射事件
+          this.$emit('item-click',item.id)
+        }
+      },
+      props: ['cInfo','cMessage']
+    }
+    const app = new Vue({
+      el: '#app',//用于挂载元素
+      data:{//定义数据
+        message: '芜湖',
+        info: {
+          name: 'why',
+          action: 'chifan',
+          height: 1.87
+        }
+    },
+    components:{
+      cpn
+    },
+    methods:{
+      cpnClick(i){
+        console.log('接收到了',i)
+      }
+    }
+  })
+  </script>
+</body>
+</html>

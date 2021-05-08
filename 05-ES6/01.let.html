@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button class="but">按钮</button>
+  <button class="but">按钮</button>
+  <button class="but">按钮</button>
+  <button class="but">按钮</button>
+  <button class="but">按钮</button>
+  <script>
+    const btns = document.getElementsByClassName('but')
+    // for (var i = 0; i < btns.length; i++) {
+    //   btns[i].onclick = function () {
+    //     console.log('第' + i + '个')
+    //   }
+    // }//错误写法
+    // { i=0//仅为刚赋值时为0，后续i修改亦会变，故最后是5
+    //   btns[i].onclick = function () {
+    //     console.log('第' + i + '个')
+    //   }
+    //   {i=1
+    //   btns[i].onclick = function () {
+    //     console.log('第' + i + '个')
+    //   }
+    //   {i=2
+    //   btns[i].onclick = function () {
+    //     console.log('第' + i + '个')
+    //   }
+    //   {i=3
+    //   btns[i].onclick = function () {
+    //     console.log('第' + i + '个')
+    //   }
+    //   {i=4
+    //   btns[i].onclick = function () {
+    //     console.log('第' + i + '个')
+    //   }
+    //使用闭包，方法一
+    // for (var i = 0; i < btns.length; i++) {
+    //   (function(i){btns[i].onclick = function () {
+    //     console.log('第' + i + '个')
+    //   }})(i)//function有块级作用域
+    // }
+    //使用let，方法二
+    for (let i = 0; i < btns.length; i++) {
+      btns[i].onclick = function () {
+        console.log('第' + i + '个')
+      }
+    }
+  </script>
+</body>
+
+</html>
