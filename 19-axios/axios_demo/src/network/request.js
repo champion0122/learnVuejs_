@@ -2,7 +2,7 @@ import axios from "axios";
 
 export function request(config){
     const instance = axios.create({
-      baseURL: '',
+      baseURL: 'https://api.apishop.net/common/weather/get15DaysWeatherByArea?apiKey=cBsHvK5872c20ee425a7300ef22c23177600b09d0a427c9&area=',
       timeout: 5000
     })
 
